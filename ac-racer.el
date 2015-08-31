@@ -52,7 +52,7 @@
         (line (number-to-string (line-number-at-pos)))
         (column (number-to-string (1- (current-column))))
         (file (or (buffer-file-name) "")))
-    (write-region (point-min) (point-max) ac-racer--tempfile)
+    (write-region (point-min) (point-max) ac-racer--tempfile nil 'no-message)
     (with-temp-buffer
       (let ((ret (process-file racer-cmd nil t nil
                                "complete" line column file ac-racer--tempfile)))
