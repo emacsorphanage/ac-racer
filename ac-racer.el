@@ -31,6 +31,8 @@
   "auto-complete source of racer"
   :group 'auto-complete)
 
+(defvar ac-racer--tempfile (concat temporary-file-directory "ac-racer-complete"))
+
 (defun ac-racer--collect-candidates ()
   (goto-char (point-min))
   (let ((re "^MATCH \\([^,]+\\),[^,]+,[^,]+,[^,]+,\\([^,]+\\),\\(.+\\)"))
@@ -48,17 +50,18 @@
                                process-environment))
         (line (number-to-string (line-number-at-pos)))
         (column (number-to-string (1- (current-column))))
-        (tmpfile (make-temp-name "ac-racer"))
         (file (or (buffer-file-name) "")))
-    (write-region (point-min) (point-max) tmpfile)
+    (write-region (point-min) (point-max) ac-racer--tempfile)
     (with-temp-buffer
-      (let ((ret (process-file racer-cmd nil t nil "complete" line column file tmpfile)))
+      (let ((ret (process-file racer-cmd nil t nil
+                               "complete" line column file ac-racer--tempfile)))
         (when (zerop ret)
           (ac-racer--collect-candidates))))))
 
 ;;;###autoload
 (defun ac-racer-setup ()
   (interactive)
+  (auto-complete-mode +1)
   (add-to-list 'ac-sources 'ac-source-racer))
 
 (ac-define-source racer
