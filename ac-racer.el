@@ -1,6 +1,6 @@
 ;;; ac-racer.el --- auto-complete source of racer
 
-;; Copyright (C) 2015 by Syohei YOSHIDA
+;; Copyright (C) 2016 by Syohei YOSHIDA
 
 ;; Author: Syohei YOSHIDA <syohex@gmail.com>
 ;; URL: https://github.com/syohex/emacs-ac-racer
@@ -22,6 +22,8 @@
 
 ;;; Commentary:
 
+;; ac-racer.el provides auto-complete source for Rust programming language.
+
 ;;; Code:
 
 (require 'auto-complete)
@@ -36,6 +38,7 @@
 
 (defun ac-racer--collect-candidates ()
   (goto-char (point-min))
+  ;; MATCH (1:candidate),line,column,filepath,(2:type),(3:signature)
   (let ((re "^MATCH \\([^,]+\\),[^,]+,[^,]+,[^,]+,\\([^,]+\\),\\(.+\\)"))
     (cl-loop while (re-search-forward re nil t)
              for candidate = (match-string-no-properties 1)
