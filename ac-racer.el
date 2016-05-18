@@ -47,6 +47,11 @@
              collect
              (popup-make-item candidate :document signature :summary type))))
 
+(defun ac-racer--prefix ()
+  (save-excursion
+    (skip-syntax-backward "w_")
+    (point)))
+
 (defun ac-racer--candidates ()
   (let ((process-environment (if racer-rust-src-path
                                  (cons (concat "RUST_SRC_PATH=" racer-rust-src-path)
@@ -69,7 +74,9 @@
   (add-to-list 'ac-sources 'ac-source-racer))
 
 (ac-define-source racer
-  '((candidates . ac-racer--candidates)))
+  '((prefix . ac-racer--prefix)
+    (candidates . ac-racer--candidates)
+    (requires . -1)))
 
 (provide 'ac-racer)
 
