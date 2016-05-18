@@ -53,7 +53,7 @@
                                        process-environment)
                                process-environment))
         (line (number-to-string (line-number-at-pos)))
-        (column (number-to-string (1- (current-column))))
+        (column (number-to-string (current-column)))
         (file (or (buffer-file-name) "")))
     (write-region (point-min) (point-max) ac-racer--tempfile nil 'no-message)
     (with-temp-buffer
