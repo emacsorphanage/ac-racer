@@ -1,11 +1,11 @@
 ;;; ac-racer.el --- auto-complete source of racer
 
-;; Copyright (C) 2016 by Syohei YOSHIDA
+;; Copyright (C) 2017 by Syohei YOSHIDA
 
 ;; Author: Syohei YOSHIDA <syohex@gmail.com>
 ;; URL: https://github.com/syohex/emacs-ac-racer
 ;; Version: 0.01
-;; Package-Requires: ((auto-complete "1.5.0") (racer "0.0.2") (cl-lib "0.5"))
+;; Package-Requires: ((emacs "24.3") (auto-complete "1.5.0") (racer "0.0.2"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
