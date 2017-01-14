@@ -19,13 +19,8 @@ You can install `ac-racer` with the following command.
 
 ## Configuration
 
-You must set `racer-cmd` and `racer-rust-src-path`. See [racer document](https://github.com/phildawes/racer#emacs-integration) in more detail.
-
-```lisp
-(custom-set-variables
- '(racer-cmd (expand-file-name "your racer path"))
- '(racer-rust-src-path (expand-file-name "your rust source code path")))
-```
+You must set `RUST_SRC_PATH` environment variable or `racer-rust-src-path`.
+See [racer document](https://github.com/phildawes/racer#emacs-integration) in more detail.
 
 
 ## Sample Configuration
