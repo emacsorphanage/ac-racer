@@ -1,4 +1,8 @@
 Revision history for ac-racer.el
 
+Version 0.02  2017/01/14 syohex
+  - Update configuration document
+  - Drop older Emacs for maintenance
+
 Version 0.01  2015/09/04 syohex
   - init version

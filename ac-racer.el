@@ -4,7 +4,7 @@
 
 ;; Author: Syohei YOSHIDA <syohex@gmail.com>
 ;; URL: https://github.com/syohex/emacs-ac-racer
-;; Version: 0.01
+;; Version: 0.02
 ;; Package-Requires: ((emacs "24.3") (auto-complete "1.5.0") (racer "0.0.2"))
 
 ;; This program is free software; you can redistribute it and/or modify
